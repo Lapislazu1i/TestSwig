@@ -9,6 +9,7 @@
 
 
 %include std_shared_ptr.i
+%include "std_vector.i"
 %include "typemaps.i"
 
 
@@ -26,8 +27,13 @@ require:
 
 
 
-%include "../src/lib.h"
 
+
+
+%include "../src/lib.h"
+namespace std {
+  %template(Pos2DVec) vector<lego::Pos2<double>>;
+}
 
 %template(shared_ptr_int)std::shared_ptr<int>;
 

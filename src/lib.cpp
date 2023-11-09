@@ -1,5 +1,6 @@
 #include "lib.h"
 #include <stdio.h>
+#include <iostream>
 #define M_PI 3.14159265358979323846
 int lego::g_version_number = 100;
 
@@ -83,6 +84,26 @@ namespace lego
     // {
     //     printf("unique ptr:%d\n", *a);
     // }
+
+    NOR_API std::vector<Pos2<double>> get_vector_pos2()
+    {
+        std::vector<Pos2<double>> res;
+        Pos2<double> tmp(2.0, 3.0);
+        res.emplace_back(tmp);
+        res.emplace_back(tmp);
+        res.emplace_back(tmp);
+        return res;
+    }
+
+    NOR_API void print_vector_pos2(const std::vector<Pos2<double>>& pos2s)
+    {
+        for(const auto& pos : pos2s)
+        {
+            std::cout << pos.x << " " << pos.y <<"\n";
+        }
+    }
+
+
 
 
     /* Move the shape to a new location */

@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <vector>
 #define NOR_API extern
 
 namespace lego
@@ -27,12 +28,14 @@ namespace lego
     NOR_API void free_row_ptr_int(int* a);
     NOR_API void receive_int_ptr(std::shared_ptr<int> a);
 
+
     // NOR_API std::unique_ptr<int> make_unique_ptr_int(int a);
     // NOR_API void receive_int_uptr(std::unique_ptr<int> a);
     template <class T>
     class Pos2
     {
     public:
+        Pos2() = default;
         Pos2(T x_, T y_) : x(x_), y(y_) {}
         T x;
         T y;
@@ -55,6 +58,10 @@ namespace lego
             return pos3;
         }
     };
+
+    NOR_API std::vector<Pos2<double>> get_vector_pos2();
+    NOR_API void print_vector_pos2(const std::vector<Pos2<double>>& pos2s);
+
     class Shape
     {
     public:
