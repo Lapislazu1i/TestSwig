@@ -1,3 +1,4 @@
 build
 swig_csharp
 swig_python
+src/version.h
